@@ -2,7 +2,7 @@
 ### Packages that are used in this study ###
 ############################################
 
-### Single-cell analysis & bulk analysis (CCLE transcriptomics and proteomics)
+### Single-cell analysis, bulk analysis (CCLE transcriptomics and proteomics) & synergic analysis
 library(Seurat)
 library(SeuratData)
 library(SeuratDisk)
@@ -36,6 +36,8 @@ library(PCAtools)
 library(patchwork)
 library(clusterProfiler)
 library(GSVA)
+library(scales)
+library(synergyfinder)
 
 ### Visualization
 library(ggplot2)
@@ -43,6 +45,7 @@ library(ggrepel)
 library(ggpubr)
 library(ggthemes)
 library(ggsignif)
+library(ggtext)
 library(gridExtra)
 library(grid)
 library(gridtext)
