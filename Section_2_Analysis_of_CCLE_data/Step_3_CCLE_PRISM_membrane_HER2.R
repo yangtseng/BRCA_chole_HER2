@@ -132,5 +132,5 @@ png(
   unit = 'in',
   res = 300
 )
-p + annotate("text",label = "R = 0.861", x = 1.2, y = 25)
+p + annotate("text",label = "R = 0.861", x = 1.4, y = 25)
 dev.off()
