@@ -7,7 +7,8 @@
 #################
 ### Load data ###
 #################
-drug.info <- read.csv('~/R/BRCA/new_TNBC/breast/primary-screen-replicate-treatment-info.csv', header = T, row.names = 1)
+dt.prism <- read.csv('primary-screen-replicate-collapsed-logfold-change.csv', header = T, row.names = 1)
+drug.info <- read.csv('primary-screen-replicate-treatment-info.csv', header = T, row.names = 1)
 # remove NA in drug.info
 drug.info <- drug.info[complete.cases(drug.info$name),]
 
