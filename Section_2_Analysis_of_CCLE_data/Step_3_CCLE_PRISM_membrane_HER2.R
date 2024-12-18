@@ -40,7 +40,7 @@ rownames(dt.prism) <- dt.nonHER2_cellline_name
 dt.prism$cellline <- rownames(dt.prism)
 
 ### Ranked by cholesterol biosynthesis
-dt.prism$rank <- c(3,4,5,8,2,10,9,7,1,6)
+dt.prism$rank <- c(3,4,5,7,1,9,10,8,2,6)
 dt.prism$types <- c(rep("ER- HER2-", 10))
 dt.prism$types[1] <- c("ER+ HER2-")
 dt.prism$types[2] <- c("ER+ HER2-")
