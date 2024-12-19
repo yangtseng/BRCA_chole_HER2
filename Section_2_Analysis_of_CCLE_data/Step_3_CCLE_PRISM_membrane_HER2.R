@@ -62,11 +62,14 @@ summary(fit)
 ### Visualization ###
 #####################
 p <- ggplot(dt.prism.new, aes(x = rank, y = dt.prism)) + geom_point(aes(colour = types)) + 
-  xlab("Rank of\nCholesterol Biosynthesis") + ylab("PRISM score\n Neratinib") + theme_bw() + 
+  xlab("Cholesterol Biosynthesis\nActivity Levels (Ranked)") + ylab("PRISM score\n Neratinib") + theme_bw() + 
   theme(text = element_text(family = "Sans", size = 14),
-        axis.text = element_text(size = 20, colour = 'black'),
-        axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 16, colour = 'black', hjust = 0.1),
+        axis.text.y = element_text(size = 16, colour = 'black'),
+        axis.title.x = element_text(size = 20, vjust = 0),
+        axis.title.y = element_text(size = 20),
         legend.title = element_text(size = 16),
+        axis.ticks.x=element_blank(),
         legend.text = element_text(size = 14),
         legend.position = 'top',
         legend.justification = 'right',
@@ -78,16 +81,17 @@ p <- ggplot(dt.prism.new, aes(x = rank, y = dt.prism)) + geom_point(aes(colour =
         panel.grid.minor = element_blank()) + 
   geom_smooth(aes(rank, dt.prism), method = "lm",se = FALSE,color='grey80') +
   geom_label_repel(aes(label = cellline, colour = types),
-                   point.padding = 0.5,
+                   point.padding = 0.2,
                    min.segment.length = 0, 
                    box.padding = 1,
                    segment.color = 'grey80', 
                    show_guide  = F,
-                   nudge_x = 0.5,
+                   nudge_x = 0.4,
                    xlim = c(1,10),
-                   nudge_y = 0.5) +
+                   nudge_y = 0.3) +
   scale_colour_manual(values = c('#7BBDA3','#909EC6')) +
-  scale_x_continuous(breaks = c(1:10))
+  scale_x_continuous(breaks = c(1:10),
+                     labels = c('Low',rep("",7),'High',''))
 
 png(
   filename  = 'paper_figure/Fig_6b.png',
@@ -96,14 +100,17 @@ png(
   unit = 'in',
   res = 300
 )
-p+ annotate("text",label = "R = 0.256", x = 9, y = -1.3)
+p+ annotate("text",label = "R = 0.395", x = 1.8, y = -1.3)
 dev.off()
 
 p <- ggplot(chole_her2, aes(x = rank, y = her2)) + geom_point(aes(colour = types)) + 
-  xlab("Rank of\nCholesterol Biosynthesis") + ylab("Cell Surface HER2\nintensity (MFI)") + theme_bw() + 
+  xlab("Cholesterol Biosynthesis\nActivity Levels (Ranked)") + ylab("Cell Surface HER2\nIntensity (MFI)") + theme_bw() + 
   theme(text = element_text(family = "Sans", size = 14),
-        axis.text = element_text(size = 20, colour = 'black'),
-        axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 16, colour = 'black'),
+        axis.text.y = element_text(size = 16, colour = 'black'),
+        axis.title.x = element_text(size = 20, vjust = 0),
+        axis.title.y = element_text(size = 20),
+        axis.ticks.x=element_blank(),
         legend.title = element_text(size = 16),
         legend.text = element_text(size = 14),
         legend.position = 'top',
@@ -124,7 +131,8 @@ p <- ggplot(chole_her2, aes(x = rank, y = her2)) + geom_point(aes(colour = types
                    nudge_x = 0.5,
                    xlim = c(1,4),
                    nudge_y = 0.5) +
-  scale_colour_manual(values = c('#7BBDA3','#909EC6'))
+  scale_colour_manual(values = c('#7BBDA3','#909EC6'))+
+  scale_x_continuous(breaks = c(1:4), labels = c('Low','','','High'))
 
 png(
   filename  = 'paper_figure/Fig_6c.png',
@@ -133,5 +141,5 @@ png(
   unit = 'in',
   res = 300
 )
-p + annotate("text",label = "R = 0.861", x = 1.4, y = 25)
+p + annotate("text",label = "R = 0.861", x = 1.4, y = 8)
 dev.off()
