@@ -1,4 +1,4 @@
-# Single-cell RNA sequencing unveils cholesterol biosynthesis as a combinatorial therapeutic target with HER2 in malignant breast cancer
+# Single-Cell and Multi-Omics Integration Reveals Cholesterol Biosynthesis as a Synergistic Target with HER2 in Aggressive Breast Cancer
 The paper is currently unavailable
 
 Background: Breast cancer stands as one of the most prevalent malignancies affecting women. As the disease advances, especially with the development of metastases, treatment complexities escalate. Also, pathway alterations within the cancer cells play a pivotal role in driving malignancy, bolstering cancer cell survival, proliferation, and enhancing the therapeutic efficacy.
