@@ -13,8 +13,27 @@ cancer.so <- readRDS("cancer_SO.rds")
 ### We used AddModuleScore function in Seurat
 ### Load Gene70
 data(sig.gene70)
-gene70 <- sig.gene70$NCBI.gene.symbol
+gene70 <- sig.gene70$NCBI.gene.symbol[sig.gene70$average.good.prognosis.profile < 0]
 gene70 <- na.omit(gene70)
+
+which(gene70 == 'ZNF533')
+gene70[2] <- 'ZNF385B'
+which(gene70 == 'C20orf46')
+gene70[3] <- 'TMEM74B'
+which(gene70 == 'C9orf30')
+gene70[12] <- 'MSANTD3'
+which(gene70 == 'ORC6L')
+gene70[16] <- 'ORC6'
+which(gene70 == 'GPR126')
+gene70[18] <- 'ADGRG6'
+which(gene70 == 'AYTL2')
+gene70[27] <- 'LPCAT1'
+which(gene70 == 'KNTC2')
+gene70[29] <- 'NDC80'
+which(gene70 == 'C16orf61')
+gene70[36] <- 'CMC2'
+which(gene70 == 'QSCN6L1')
+gene70[39] <- 'QSOX2'
 
 cancer.so <- AddModuleScore(cancer.so, features = list(gene70), name = 'Gene70', assay = 'SCT')
 
